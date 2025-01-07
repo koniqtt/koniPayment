@@ -95,22 +95,23 @@ client.once('ready', () => {
 
 client.on('messageCreate', async (message) => {
     if (message.content.toLowerCase() === '!gcash') {
-        const gcashQrUrl = 'https://raw.githubusercontent.com/koniqtt/koniwho/refs/heads/main/koni.gif'; // Replace with your actual GCash QR code URL
+        const gcashQrUrl = 'https://raw.githubusercontent.com/koniqtt/koniwho/refs/heads/main/koni.gif'; 
 
         await message.channel.send({
             content: 'Here is my GCash account info:\nAccount Name: Koni \nAccount Number: 9009090',
             files: [gcashQr],
         });
-    }
+    } 
 
     if (message.content.toLowerCase() === '!paypal') {
-        const paypalQrUrl = 'https://raw.githubusercontent.com/koniqtt/koniwho/refs/heads/main/koni.gif'; // Replace with your actual PayPal QR code URL
+        const paypalQrUrl = 'https://raw.githubusercontent.com/koniqtt/koniwho/refs/heads/main/koni.gif'; 
 
         await message.channel.send({
             content: 'Here is my PayPal account info:\nPayPal Email: @example.com',
             files: [paypalQr],
         });
-    }
-});
+    } 
+}); 
+
 
 login();
