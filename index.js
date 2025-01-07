@@ -81,7 +81,13 @@ client.on('messageCreate', async (message) => {
             .setDescription('Here is my GCash account info:\nAccount Name: Koni \nAccount Number: 9009090')
             .setImage(gcashQrUrl); 
 
-        await message.channel.send({ embeds: [gcashEmbed] });
+        const sentMessage = await message.channel.send({ embeds: [gcashEmbed] });
+
+        setTimeout(() => {
+            sentMessage.delete()
+                .then(() => console.log('Embed message deleted'))
+                .catch((error) => console.error('Error deleting message:', error));
+        }, 30000); 
     } 
 
     if (message.content.toLowerCase() === '!paypal') {
@@ -92,8 +98,15 @@ client.on('messageCreate', async (message) => {
             .setDescription('Here is my PayPal account info:\nPayPal Email: @example.com')
             .setImage(paypalQrUrl); 
 
-        await message.channel.send({ embeds: [paypalEmbed] });
-    } 
+        const sentMessage = await message.channel.send({ embeds: [paypalEmbed] });
+
+        setTimeout(() => {
+            sentMessage.delete()
+                .then(() => console.log('Embed message deleted'))
+                .catch((error) => console.error('Error deleting message:', error));
+        }, 30000);
+    }
 });
+
 
 login();
