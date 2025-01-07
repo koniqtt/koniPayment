@@ -76,7 +76,7 @@ client.on('messageCreate', async (message) => {
     if (message.content.toLowerCase() === '!gcash') {
         const gcashQrUrl = 'https://raw.githubusercontent.com/koniqtt/koniwho/refs/heads/main/koni.gif'; 
 
-        const gcashEmbed = new MessageEmbed()
+        const gcashEmbed = new EmbedBuilder() 
             .setTitle('GCash Account Info')
             .setDescription('Here is my GCash account info:\nAccount Name: Koni \nAccount Number: 9009090')
             .setImage(gcashQrUrl); 
@@ -87,7 +87,7 @@ client.on('messageCreate', async (message) => {
     if (message.content.toLowerCase() === '!paypal') {
         const paypalQrUrl = 'https://raw.githubusercontent.com/koniqtt/koniwho/refs/heads/main/koni.gif'; 
 
-        const paypalEmbed = new MessageEmbed()
+        const paypalEmbed = new EmbedBuilder() 
             .setTitle('PayPal Account Info')
             .setDescription('Here is my PayPal account info:\nPayPal Email: @example.com')
             .setImage(paypalQrUrl); 
