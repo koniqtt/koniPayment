@@ -2,30 +2,6 @@ const { Client, GatewayIntentBits, ActivityType, AttachmentBuilder } = require('
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
-
-const client = new Client({
-    intents: [client.on('messageCreate', async (message) => {
-    if (message.content.toLowerCase() === '!gcash') {
-        const gcashQrUrl = 'https://example.com/gcash-qr.png'; // Replace with your actual GCash QR code URL
-        const gcashQr = new AttachmentBuilder(gcashQrUrl, { name: 'gcash-qr.png' });
-
-        await message.channel.send({
-            content: 'Here is my GCash account info:\nAccount Name: Koni \nAccount Number: 9009090',
-            files: [gcashQr],
-        });
-    }
-
-    if (message.content.toLowerCase() === '!paypal') {
-        const paypalQrUrl = 'https://example.com/paypal-qr.png'; // Replace with your actual PayPal QR code URL
-        const paypalQr = new AttachmentBuilder(paypalQrUrl, { name: 'paypal-qr.png' });
-
-        await message.channel.send({
-            content: 'Here is my PayPal account info:\nPayPal Email: @example.com',
-            files: [paypalQr],
-        });
-    }
-});
-
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent,
