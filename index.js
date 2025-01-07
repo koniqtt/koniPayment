@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, ActivityType, AttachmentBuilder, MessageEmbed } = require('discord.js');
+const { Client, GatewayIntentBits, ActivityType, AttachmentBuilder, EmbedBuilder } = require('discord.js');
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
