@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, ActivityType, AttachmentBuilder } = require('discord.js');
+const { Client, GatewayIntentBits, ActivityType, AttachmentBuilder, MessageEmbed } = require('discord.js');
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
@@ -73,21 +73,24 @@ client.on('messageCreate', async (message) => {
     if (message.content.toLowerCase() === '!gcash') {
         const gcashQrUrl = 'https://raw.githubusercontent.com/koniqtt/koniwho/refs/heads/main/koni.gif'; 
 
-        await message.channel.send({
-            content: 'Here is my GCash account info:\nAccount Name: Koni \nAccount Number: 9009090',
-            files: [gcashQr],
-        });
+        const gcashEmbed = new MessageEmbed()
+            .setTitle('GCash Account Info')
+            .setDescription('Here is my GCash account info:\nAccount Name: Koni \nAccount Number: 9009090')
+            .setImage(gcashQrUrl); 
+
+        await message.channel.send({ embeds: [gcashEmbed] });
     } 
 
     if (message.content.toLowerCase() === '!paypal') {
         const paypalQrUrl = 'https://raw.githubusercontent.com/koniqtt/koniwho/refs/heads/main/koni.gif'; 
 
-        await message.channel.send({
-            content: 'Here is my PayPal account info:\nPayPal Email: @example.com',
-            files: [paypalQr],
-        });
-    } 
-}); 
+        const paypalEmbed = new MessageEmbed()
+            .setTitle('PayPal Account Info')
+            .setDescription('Here is my PayPal account info:\nPayPal Email: @example.com')
+            .setImage(paypalQrUrl); 
 
+        await message.channel.send({ embeds: [paypalEmbed] });
+    } 
+});
 
 login();
