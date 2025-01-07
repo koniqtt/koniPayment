@@ -1,6 +1,13 @@
 const { Client, GatewayIntentBits, ActivityType, AttachmentBuilder, EmbedBuilder } = require('discord.js');
 require('dotenv').config();
 const express = require('express');
+const app = express();
+
+const PORT = process.env.PORT || 3000; 
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
 const path = require('path');
 
 const client = new Client({
