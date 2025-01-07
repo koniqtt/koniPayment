@@ -73,6 +73,8 @@ client.once('ready', () => {
 });
 
 client.on('messageCreate', async (message) => {
+    if (message.author.bot) return;
+
     if (message.content.toLowerCase() === '!gcash') {
         const gcashQrUrl = 'https://raw.githubusercontent.com/koniqtt/koniwho/refs/heads/main/koni.gif'; 
 
@@ -83,11 +85,13 @@ client.on('messageCreate', async (message) => {
 
         const sentMessage = await message.channel.send({ embeds: [gcashEmbed] });
 
+        await message.delete();
+
         setTimeout(() => {
             sentMessage.delete()
                 .then(() => console.log('Embed message deleted'))
                 .catch((error) => console.error('Error deleting message:', error));
-        }, 30000); 
+        }, 30000); // 30 seconds
     } 
 
     if (message.content.toLowerCase() === '!paypal') {
@@ -100,6 +104,8 @@ client.on('messageCreate', async (message) => {
 
         const sentMessage = await message.channel.send({ embeds: [paypalEmbed] });
 
+        await message.delete();
+
         setTimeout(() => {
             sentMessage.delete()
                 .then(() => console.log('Embed message deleted'))
@@ -107,6 +113,7 @@ client.on('messageCreate', async (message) => {
         }, 30000);
     }
 });
+
 
 
 login();
