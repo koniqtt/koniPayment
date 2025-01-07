@@ -1,12 +1,6 @@
 const { Client, GatewayIntentBits, ActivityType, AttachmentBuilder, EmbedBuilder } = require('discord.js');
 require('dotenv').config();
 const express = require('express');
-const app = express();
-
-const PORT = process.env.PORT || 3000; 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
 
 const path = require('path');
 
@@ -20,6 +14,19 @@ const client = new Client({
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
+});
+
+const app = express();
+const port = 3000;
+app.get('/', (req, res) => {
+    const imagePath = path.join(__dirname, 'index.html');
+    res.sendFile(imagePath);
+});
+app.listen(port, () => {
+    console.log(
+        '\x1b[36m[ SERVER ]\x1b[0m',
+        `\x1b[32m SH : http://localhost:${port} ✅\x1b[0m`
+    );
 });
 
 const statusMessages = ['alagad ni koni', 'mua ka sakin boss'];
