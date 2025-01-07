@@ -74,7 +74,7 @@ client.once('ready', () => {
 
 client.on('messageCreate', async (message) => {
     if (message.content.toLowerCase() === '!gcash') {
-        const gcashQrPath = path.join(__dirname, 'gcash-qr.png');
+        const gcashQrPath = path.join(__dirname, '#');
         const gcashQr = new AttachmentBuilder(gcashQrPath, { name: 'gcash-qr.png' });
 
         await message.channel.send({
@@ -84,7 +84,7 @@ client.on('messageCreate', async (message) => {
     }
 
     if (message.content.toLowerCase() === '!paypal') {
-        const paypalQrPath = path.join(__dirname, 'paypal-qr.png'); 
+        const paypalQrPath = path.join(__dirname, '#'); 
         const paypalQr = new AttachmentBuilder(paypalQrPath, { name: 'paypal-qr.png' });
 
         await message.channel.send({
