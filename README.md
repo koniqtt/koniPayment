@@ -38,7 +38,6 @@
   24/7 Bot and Payment shits HAHHAA
   <br>
   <span style="font-size: 1.2em; color: #ffeb3b;">
-    "WAG SPAM KUPAL KABA BOSS {user}?!"
   </span>
 </h1>
 
